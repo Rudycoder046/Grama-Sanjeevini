@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add New Medicine"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="24dp" />
+
+        <EditText
+            android:id="@+id/inputName"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginBottom="12dp"
+            android:background="@android:drawable/editbox_background"
+            android:hint="Medicine Name"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/inputShopName"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Shop Name"
+            android:background="@android:drawable/editbox_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/inputPrice"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Price (e.g. 10.5)"
+            android:inputType="numberDecimal"
+            android:background="@android:drawable/editbox_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/inputExpiry"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Expiry Date (YYYY-MM-DD)"
+            android:background="@android:drawable/editbox_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/inputDistance"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Distance from city (km)"
+            android:inputType="numberDecimal"
+            android:background="@android:drawable/editbox_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/inputQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Quantity"
+            android:inputType="number"
+            android:background="@android:drawable/editbox_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Save Medicine"
+            android:backgroundTint="#4CAF50"
+            android:textColor="@android:color/white" />
+
+        <ProgressBar
+            android:id="@+id/saveLoader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</ScrollView>
