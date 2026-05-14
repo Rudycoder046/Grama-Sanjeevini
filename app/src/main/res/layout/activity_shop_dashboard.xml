@@ -11,19 +11,52 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#1A237E"
-        app:title="Inventory Management"
-        app:titleTextColor="#FFFFFF">
+        android:background="#0D47A1"
+        app:title="Grama Sanjeevini Admin"
+        app:titleTextColor="#FFFFFF"
+        android:elevation="8dp">
 
-        <TextView
-            android:id="@+id/logoutBtn"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
-            android:text="LOGOUT"
-            android:textColor="#FFCDD2"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/settingsBtn"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="16dp"
+                android:src="@android:drawable/ic_menu_manage"
+                app:tint="#FFFFFF"
+                android:contentDescription="Settings"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <ImageView
+                android:id="@+id/profileBtn"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="16dp"
+                android:src="@android:drawable/ic_menu_myplaces"
+                app:tint="#FFFFFF"
+                android:contentDescription="Profile"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <TextView
+                android:id="@+id/logoutBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="LOGOUT"
+                android:textColor="#FFCDD2"
+                android:textStyle="bold" />
+
+        </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.core.widget.NestedScrollView
@@ -36,14 +69,41 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <TextView
-                android:id="@+id/shopNameHeader"
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Administrator Dashboard"
-                android:textSize="14sp"
-                android:textColor="#546E7A"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:background="#FFFFFF">
+
+                    <TextView
+                        android:id="@+id/shopNameHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Administrator Dashboard"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#1976D2"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Real-time Inventory Control Center"
+                        android:textSize="12sp"
+                        android:textColor="#78909C" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             <!-- Stats Cards Row -->
             <LinearLayout
@@ -113,19 +173,47 @@
             <Button
                 android:id="@+id/addNewBtn"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:text="+ Register New Entry"
+                android:layout_height="60dp"
+                android:text="+ REGISTER NEW ENTRY"
                 android:textColor="@android:color/white"
-                android:layout_marginBottom="24dp"
-                android:backgroundTint="#1A237E" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Medicine Catalog"
-                android:textSize="18sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="12dp" />
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="#43A047"
+                android:elevation="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="24dp"
+                    android:background="#0D47A1"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ACTIVE CATALOG"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#37474F"
+                    android:letterSpacing="0.1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Click to Edit"
+                    android:textSize="12sp"
+                    android:textColor="#90A4AE"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/inventoryRecycler"

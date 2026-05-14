@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/profileTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Professional Profile"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:layout_marginBottom="24dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="60dp"
+            android:layout_marginBottom="16dp"
+            app:cardElevation="4dp">
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_camera"
+                android:background="#EEEEEE" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap photo to upload"
+            android:textSize="12sp"
+            android:textColor="#757575"
+            android:layout_marginBottom="24dp" />
+
+        <!-- NAME SECTION -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Full Name"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp" />
+        <EditText
+            android:id="@+id/profName"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="e.g. Rahul Sharma"
+            android:background="@android:drawable/editbox_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="16dp" />
+
+        <!-- EMAIL SECTION -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email Address (Login ID)"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp" />
+        <EditText
+            android:id="@+id/profEmail"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Email (Read-only)"
+            android:enabled="false"
+            android:background="@android:drawable/editbox_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#757575"
+            android:layout_marginBottom="16dp" />
+
+        <!-- QUALIFICATION SECTION -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Qualification"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp" />
+        <Spinner
+            android:id="@+id/profQualSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@android:drawable/editbox_background"
+            android:layout_marginBottom="16dp" />
+        <EditText
+            android:id="@+id/profQual"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone" />
+
+        <!-- PHONE SECTION -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mobile Number"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="@android:drawable/editbox_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+91 "
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/profPhone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="10-digit number"
+                android:inputType="phone"
+                android:background="@null"
+                android:maxLength="10"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <!-- SHOP NAME SECTION -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medical Shop Name"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp" />
+        <EditText
+            android:id="@+id/profShopName"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="e.g. City Medicals"
+            android:background="@android:drawable/editbox_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="16dp" />
+
+        <!-- LOCATION SECTION -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shop Location / Address"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp" />
+        <EditText
+            android:id="@+id/profLocation"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="e.g. MG Road, Bangalore"
+            android:background="@android:drawable/editbox_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="12dp" />
+
+        <!-- GOOGLE MAPS LINK SECTION -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Google Maps Shop Link (Optional)"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp" />
+        <EditText
+            android:id="@+id/profMapsLink"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Paste your shop's map link here"
+            android:background="@android:drawable/editbox_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/pinLocationBtn"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📍 PIN CURRENT GPS LOCATION"
+            android:textColor="#1976D2"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/gpsStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GPS: Not pinned"
+            android:textSize="12sp"
+            android:textColor="#757575"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medical License Photo"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:layout_marginBottom="8dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="24dp">
+            <ImageView
+                android:id="@+id/licenseImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:padding="32dp"
+                android:background="#EEEEEE" />
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/saveProfileBtn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="SAVE PROFESSIONAL PROFILE"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#1A237E"
+            android:layout_marginBottom="16dp" />
+
+        <ProgressBar
+            android:id="@+id/profileLoader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</ScrollView>

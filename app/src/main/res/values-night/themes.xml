@@ -1,12 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Medicine" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Base.Theme.Medicine" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#1A237E</item>
-        <item name="colorPrimaryDark">#000051</item>
+        <item name="colorSecondary">#000051</item>
         <item name="colorAccent">#FFC107</item>
-
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="colorSurface">#121212</item>
     </style>
 </resources>

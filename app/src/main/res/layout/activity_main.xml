@@ -2,8 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/logoBackground"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/app_logo"
+        android:alpha="0.1"
+        android:scaleType="fitCenter" />
 
     <!-- Header for Villagers -->
     <LinearLayout
@@ -13,15 +21,34 @@
         android:orientation="vertical"
         android:background="#2196F3"
         android:padding="24dp"
-        android:layout_centerInParent="true">
+        android:layout_alignParentTop="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Grama Sanjeevini"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grama Sanjeevini"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF" />
+
+            <ImageView
+                android:id="@+id/settingsBtn"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@android:drawable/ic_menu_manage"
+                app:tint="#FFFFFF"
+                android:contentDescription="Settings"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,7 +65,7 @@
             android:background="@android:drawable/editbox_background"
             android:padding="4dp">
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/searchBox"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
@@ -47,13 +74,14 @@
                 android:background="@null"
                 android:paddingStart="16dp"
                 android:textSize="18sp"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:completionThreshold="1" />
 
             <Button
                 android:id="@+id/searchBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:text="FIND"
+                android:text="SEARCH MEDICINE"
                 android:textStyle="bold"
                 android:backgroundTint="#FFC107"
                 android:textColor="@android:color/black" />
@@ -67,6 +95,40 @@
             android:layout_marginTop="16dp"
             android:visibility="gone" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/emptyState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:padding="32dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@android:drawable/ic_menu_search"
+            app:tint="#BDBDBD" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ready to Find Medicine?"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#757575"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type a medicine name like 'Paracetamol' above to search shops within 50km."
+            android:textSize="14sp"
+            android:textColor="#9E9E9E"
+            android:gravity="center"
+            android:layout_marginTop="8dp" />
     </LinearLayout>
 
     <!-- Simple Results List -->

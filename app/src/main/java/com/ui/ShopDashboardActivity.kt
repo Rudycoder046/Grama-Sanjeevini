@@ -3,6 +3,7 @@ package com.example.medicine.ui
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -42,13 +43,35 @@ class ShopDashboardActivity : AppCompatActivity() {
         val logoutBtn = findViewById<TextView>(R.id.logoutBtn)
         val addBtn = findViewById<Button>(R.id.addNewBtn)
         val shopHeader = findViewById<TextView>(R.id.shopNameHeader)
+        val settingsBtn = findViewById<ImageView>(R.id.settingsBtn)
+        val profileBtn = findViewById<ImageView>(R.id.profileBtn)
         totalStockTxt = findViewById(R.id.totalStockCount)
         expiringTxt = findViewById(R.id.expiringCount)
         
         val totalStockCard = totalStockTxt.parent as android.view.View
         val expiringCard = expiringTxt.parent as android.view.View
 
-        adapter = MedicineAdapter(inventoryList)
+        adapter = MedicineAdapter(inventoryList, 
+            onEditClick = { med ->
+                val intent = Intent(this, AddMedicineActivity::class.java)
+                intent.putExtra("MED_ID", med.id)
+                intent.putExtra("MED_NAME", med.name)
+                intent.putExtra("MED_SHOP", med.shopName)
+                intent.putExtra("MED_PRICE", med.price)
+                intent.putExtra("MED_EXPIRY", med.expiryDate)
+                intent.putExtra("MED_DIST", med.distance)
+                intent.putExtra("MED_QTY", med.quantity)
+                intent.putExtra("MED_LIFE", med.lifeSaving)
+                intent.putExtra("MED_LAT", med.latitude)
+                intent.putExtra("MED_LON", med.longitude)
+                intent.putExtra("MED_ADDR", med.shopAddress)
+                intent.putExtra("MED_MLINK", med.shopMapsLink)
+                startActivity(intent)
+            },
+            onDeleteClick = { med ->
+                showDeleteConfirmation(med)
+            }
+        )
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
 
@@ -89,6 +112,31 @@ class ShopDashboardActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+
+        settingsBtn.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            intent.putExtra("IS_MEDICAL", true)
+            startActivity(intent)
+        }
+
+        profileBtn.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+        
+        updateWelcomeMessage(shopHeader)
+    }
+
+    private fun updateWelcomeMessage(header: TextView) {
+        val uid = auth.currentUser?.uid ?: return
+        db.collection("profiles").document(uid).get()
+            .addOnSuccessListener { doc ->
+                if (doc.exists()) {
+                    val name = doc.getString("name") ?: ""
+                    if (name.isNotEmpty()) {
+                        header.text = "Welcome, $name"
+                    }
+                }
+            }
     }
 
     private fun loadInventory() {
@@ -138,6 +186,20 @@ class ShopDashboardActivity : AppCompatActivity() {
             .setTitle("⚠️ Expiry Alert")
             .setMessage("You have $count medicine(s) that are either expired or expiring within 3 months. Please check your inventory.")
             .setPositiveButton("View Inventory") { dialog, _ -> dialog.dismiss() }
+            .show()
+    }
+
+    private fun showDeleteConfirmation(med: Medicine) {
+        AlertDialog.Builder(this)
+            .setTitle("Delete Medicine")
+            .setMessage("Are you sure you want to remove '${med.name}' from your inventory?")
+            .setPositiveButton("Delete") { _, _ ->
+                db.collection("medicines").document(med.id).delete()
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Medicine deleted", Toast.LENGTH_SHORT).show()
+                    }
+            }
+            .setNegativeButton("Cancel", null)
             .show()
     }
 

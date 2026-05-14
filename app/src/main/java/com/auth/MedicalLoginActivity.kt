@@ -2,6 +2,7 @@ package com.example.medicine.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.medicine.R
@@ -18,6 +19,11 @@ class MedicalLoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_medical_login)
 
         auth = FirebaseAuth.getInstance()
+
+        // Apply slide-up animation to the root layout
+        val rootLayout = findViewById<LinearLayout>(R.id.medicalLoginRoot)
+        val slideUp = AnimationUtils.loadAnimation(this, R.anim.slide_up)
+        rootLayout.startAnimation(slideUp)
 
         val email = findViewById<EditText>(R.id.medEmail)
         val password = findViewById<EditText>(R.id.medPassword)

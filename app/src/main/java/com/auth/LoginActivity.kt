@@ -2,6 +2,7 @@ package com.example.medicine.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.medicine.R
@@ -23,6 +24,11 @@ class LoginActivity : AppCompatActivity() {
         val loginBtn = findViewById<Button>(R.id.loginBtn)
         val registerBtn = findViewById<Button>(R.id.registerBtn)
         val goToMedicalBtn = findViewById<Button>(R.id.goToMedicalBtn)
+
+        // Apply slide-up animation to the root layout
+        val rootLayout = findViewById<LinearLayout>(R.id.loginRoot)
+        val slideUp = AnimationUtils.loadAnimation(this, R.anim.slide_up)
+        rootLayout.startAnimation(slideUp)
 
         goToMedicalBtn.setOnClickListener {
             startActivity(Intent(this, MedicalLoginActivity::class.java))
